@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
+    "docs:serve": "npx serve docs -p 3001",
+    "docs:build": "echo 'Building documentation...' && echo 'Documentation is ready in ./docs'",
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
   },
   "dependencies": {
