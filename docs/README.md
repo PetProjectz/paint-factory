@@ -5,6 +5,7 @@ Welcome to the Website Template documentation. This directory contains comprehen
 ## 📚 Available Documentation
 
 -   [Getting Started](./getting-started.md) - Quick start guide
+-   [Best Practices](./best-practices.md) - Best Practices guide
 -   [Architecture](./architecture.md) - Project structure and design decisions
 -   [Components](./components.md) - Component documentation
 -   [Theming](./theming.md) - Customization guide
