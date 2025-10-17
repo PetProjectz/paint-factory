@@ -1,14 +1,13 @@
 import * as React from 'react';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
-import Box from '@mui/material/Box';
-import theme from '@/theme';
 
-import Footer from '@/components/footer/Footer';
-import NavBar from '@/components/navBar/NavBar';
+import theme from '@/theme';
+import AppShell from '@/app/AppShell';
+import ThemeProvider from '@/contexts/ThemeContext';
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -16,23 +15,14 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
+          <MuiThemeProvider theme={theme}>
             <CssBaseline />
-            <NavBar />
-            <Box
-              component="main"
-              sx={{
-                position: 'relative',
-                minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                pt: 0,
-              }}
-            >
-              {props.children}
-            </Box>
-            <Footer />
-          </ThemeProvider>
+            <ThemeProvider>
+              <AppShell>
+                {props.children}
+              </AppShell>
+            </ThemeProvider>
+          </MuiThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
