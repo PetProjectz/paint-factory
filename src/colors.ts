@@ -174,6 +174,8 @@ export const getGradient = (
 
 /// Background colors
 export const backgroundInfoAlert = '#60a5fa';
+export const backgroundPrimaryDark = '#001A33';
+export const backgroundPrimaryLight = '#E6F3FF';
 
 export const {
     primary,

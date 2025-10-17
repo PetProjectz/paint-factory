@@ -3,7 +3,10 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useColorScheme } from '@mui/material/styles';
 
-type ThemeMode = 'light' | 'dark';
+enum ThemeMode {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
 
 interface ThemeContextType {
   themeMode: ThemeMode;
@@ -15,7 +18,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const { mode, setMode } = useColorScheme();
-  const [systemTheme, setSystemTheme] = useState<ThemeMode>('light');
+  const [systemTheme, setSystemTheme] = useState<ThemeMode>(ThemeMode.LIGHT);
   const [isThemeReady, setIsThemeReady] = useState(false);
 
   // Determine the actual theme mode
@@ -24,13 +27,13 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Check system preference
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const initialSystemTheme = mediaQuery.matches ? 'dark' : 'light';
+    const initialSystemTheme = mediaQuery.matches ? ThemeMode.DARK : ThemeMode.LIGHT;
     setSystemTheme(initialSystemTheme);
     setIsThemeReady(true);
 
     // Listen for system theme changes
     const handleChange = (e: MediaQueryListEvent) => {
-      setSystemTheme(e.matches ? 'dark' : 'light');
+      setSystemTheme(e.matches ? ThemeMode.DARK : ThemeMode.LIGHT);
     };
 
     mediaQuery.addEventListener('change', handleChange);
@@ -55,5 +58,5 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
 }
 
 export default ThemeProvider;
-export { ThemeContext };
+export { ThemeContext, ThemeMode };
 export type { ThemeContextType };
