@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Grow from '@mui/material/Grow';
+import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
@@ -14,11 +16,9 @@ interface HeroSectionServerProps {
 
 function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerProps) {
   const isDarkMode = themeMode === ThemeMode.DARK;
-  const theme = useTheme();
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
-  const backgroundImage = isDarkMode
-    ? `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg)`
-    : `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg)`;
+  const theme = useTheme();
 
   return (
     <Box
@@ -85,27 +85,47 @@ function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerPro
             Boost your visibility, drive real engagement, and turn clicks into customers.
           </Typography>
         </Stack>
-        <Box
-          id="image"
-          sx={{
-            alignSelf: 'center',
-            width: '100%',
-            height: 400,
-            marginTop: 8,
-            borderRadius: 1,
-            outline: '6px solid',
-            outlineColor: isDarkMode ? theme.getAlphaColor('primary', 0.15, 'dark') : theme.getAlphaColor('primary', 0.15, 'light'),
-            border: '1px solid',
-            borderColor: isDarkMode ? 'grey.700' : 'grey.200',
-            boxShadow: isDarkMode ? `0 0 24px 12px ${theme.getAlphaColor('primary', 0.3, 'dark')}` : `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
-            backgroundImage: backgroundImage,
-            backgroundSize: 'cover',
-            '@media (min-width: 600px)': {
-              marginTop: 10,
-              height: 700,
-            },
-          }}
-        />
+        <Grow in={imageLoaded} timeout={600}>
+          <Box
+            id="image"
+            sx={{
+              alignSelf: 'center',
+              width: '100%',
+              height: 400,
+              marginTop: 8,
+              borderRadius: 1,
+              outline: '6px solid',
+              outlineColor: isDarkMode ? theme.getAlphaColor('primary', 0.15, 'dark') : theme.getAlphaColor('primary', 0.15, 'light'),
+              border: '1px solid',
+              borderColor: isDarkMode ? 'grey.700' : 'grey.200',
+              boxShadow: isDarkMode ? `0 0 24px 12px ${theme.getAlphaColor('primary', 0.3, 'dark')}` : `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
+              position: 'relative',
+              overflow: 'hidden',
+              '@media (min-width: 600px)': {
+                marginTop: 10,
+                height: 700,
+              },
+            }}
+          >
+            <Image
+              src={
+                isDarkMode
+                  ? `${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg`
+                  : `${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg`
+              }
+              alt="Hero Image"
+              fill
+              style={{
+                objectFit: 'cover',
+              }}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              onLoad={() => setImageLoaded(true)}
+            />
+          </Box>
+        </Grow>
       </Container>
     </Box>
   );
