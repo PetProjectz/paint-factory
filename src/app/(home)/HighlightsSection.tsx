@@ -67,7 +67,7 @@ export default function HighlightsSection() {
       // Check header visibility
       if (headerRef.current) {
         const rect = headerRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+        const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
         if (rect.top <= windowHeight - 200 && !headerVisible) {
           setHeaderVisible(true);
@@ -78,9 +78,9 @@ export default function HighlightsSection() {
       itemRefs.current.forEach((itemRef, index) => {
         if (itemRef) {
           const rect = itemRef.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
+          const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-          if (rect.top <= windowHeight - 150 && !itemVisible[index]) {
+          if (rect.top <= windowHeight - 170 && !itemVisible[index]) {
             setItemVisible(prev => {
               const newState = [...prev];
               newState[index] = true;
@@ -95,11 +95,13 @@ export default function HighlightsSection() {
     handleScroll();
 
     // Add scroll listener
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, [headerVisible, itemVisible]);
 
   return (
@@ -144,6 +146,10 @@ export default function HighlightsSection() {
             const getRowIndex = (itemIndex: number) => {
               // For xs: 1 item per row, sm: 2 items per row, md: 3 items per row
               // We'll use a responsive approach - calculate based on current screen size
+              if (typeof window === 'undefined') {
+                return itemIndex % 3; // Default to 3 items per row for SSR
+              }
+
               const screenWidth = window.innerWidth;
               let itemsPerRow = 1;
 

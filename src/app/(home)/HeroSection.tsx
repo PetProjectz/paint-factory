@@ -9,13 +9,9 @@ import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import { ThemeMode } from '@/contexts/ThemeContext';
 import { useTheme } from '@mui/material/styles';
-import useThemeContext from '@/hooks/useThemeContext';
 
 function HeroSection() {
-  const { themeMode } = useThemeContext();
-  const isDarkMode = themeMode === ThemeMode.DARK;
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
   const theme = useTheme();
@@ -27,9 +23,7 @@ function HeroSection() {
         width: '100%',
         minHeight: '100vh',
         backgroundRepeat: 'no-repeat',
-        backgroundImage: isDarkMode
-          ? `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.5, 'dark')}, transparent)`
-          : `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
+        backgroundImage: `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
       }}
     >
       <Container
@@ -61,7 +55,7 @@ function HeroSection() {
               variant="h1"
               sx={{
                 fontSize: 'inherit',
-                color: isDarkMode ? 'primary.main' : 'primary.dark',
+                color: 'primary.dark',
               }}
             >
               Reach
@@ -96,10 +90,10 @@ function HeroSection() {
               marginTop: 8,
               borderRadius: 1,
               outline: '6px solid',
-              outlineColor: isDarkMode ? theme.getAlphaColor('primary', 0.15, 'dark') : theme.getAlphaColor('primary', 0.15, 'light'),
+              outlineColor: theme.getAlphaColor('primary', 0.15, 'light'),
               border: '1px solid',
-              borderColor: isDarkMode ? 'grey.700' : 'grey.200',
-              boxShadow: isDarkMode ? `0 0 24px 12px ${theme.getAlphaColor('primary', 0.3, 'dark')}` : `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
+              borderColor: 'grey.200',
+              boxShadow: `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
               position: 'relative',
               overflow: 'hidden',
               '@media (min-width: 600px)': {
@@ -109,11 +103,7 @@ function HeroSection() {
             }}
           >
             <Image
-              src={
-                isDarkMode
-                  ? `${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg`
-                  : `${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg`
-              }
+              src={`${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg`}
               alt="Hero Image"
               fill
               style={{

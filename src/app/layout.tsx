@@ -7,7 +7,6 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 
 import theme from '@/theme';
 import AppShell from '@/app/AppShell';
-import ThemeProvider from '@/contexts/ThemeContext';
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -17,11 +16,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
-            <ThemeProvider>
-              <AppShell>
-                {props.children}
-              </AppShell>
-            </ThemeProvider>
+            <AppShell>
+              {props.children}
+            </AppShell>
           </MuiThemeProvider>
         </AppRouterCacheProvider>
       </body>

@@ -27,7 +27,7 @@ declare module "@mui/material/styles" {
 }
 
 const theme = createTheme({
-    colorSchemes: { light: true, dark: true },
+    colorSchemes: { light: true },
     cssVariables: {
         colorSchemeSelector: "class",
     },

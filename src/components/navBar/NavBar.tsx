@@ -15,7 +15,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
 import Toolbar from '@mui/material/Toolbar';
 
-import ColorModeIconDropdown from '@/components/navBar/ColorModeIconDropDown';
 // import Sitemark from './SitemarkIcon';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -72,17 +71,7 @@ export default function NavBar() {
               </Button>
             </Box>
           </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              gap: 1,
-              alignItems: 'center',
-            }}
-          >
-            <ColorModeIconDropdown />
-          </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
-            <ColorModeIconDropdown size="medium" />
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
@@ -110,10 +99,10 @@ export default function NavBar() {
                   </IconButton>
                 </Box>
 
-                <MenuItem component={NextLink} href="/">Home</MenuItem>
-                <MenuItem component={NextLink} href="/about">About</MenuItem>
-                <MenuItem component={NextLink} href="/faq">FAQ</MenuItem>
-                <MenuItem component={NextLink} href="/contact">Contact</MenuItem>
+                <MenuItem component={NextLink} href="/" onClick={toggleDrawer(false)}>Home</MenuItem>
+                <MenuItem component={NextLink} href="/about" onClick={toggleDrawer(false)}>About</MenuItem>
+                <MenuItem component={NextLink} href="/faq" onClick={toggleDrawer(false)}>FAQ</MenuItem>
+                <MenuItem component={NextLink} href="/contact" onClick={toggleDrawer(false)}>Contact</MenuItem>
               </Box>
             </Drawer>
           </Box>
