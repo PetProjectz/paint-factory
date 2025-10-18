@@ -1,9 +1,13 @@
+'use client';
+
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
+import Fade from '@mui/material/Fade';
 import Grid from '@mui/material/Grid';
+import Grow from '@mui/material/Grow';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
@@ -53,14 +57,58 @@ const items = [
 ];
 
 export default function HighlightsSection() {
+  const [headerVisible, setHeaderVisible] = React.useState(false);
+  const [itemVisible, setItemVisible] = React.useState<boolean[]>(new Array(6).fill(false));
+  const headerRef = React.useRef<HTMLDivElement>(null);
+  const itemRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      // Check header visibility
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        if (rect.top <= windowHeight - 200 && !headerVisible) {
+          setHeaderVisible(true);
+        }
+      }
+
+      // Check each item visibility
+      itemRefs.current.forEach((itemRef, index) => {
+        if (itemRef) {
+          const rect = itemRef.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          if (rect.top <= windowHeight - 150 && !itemVisible[index]) {
+            setItemVisible(prev => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+          }
+        }
+      });
+    };
+
+    // Check initial positions
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [headerVisible, itemVisible]);
+
   return (
     <Box
       id="highlights"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: 'white',
-        bgcolor: 'grey.900',
+        bgcolor: 'secondary',
       }}
     >
       <Container
@@ -72,49 +120,77 @@ export default function HighlightsSection() {
           gap: { xs: 3, sm: 6 },
         }}
       >
-        <Box
-          sx={{
-            width: { sm: '100%', md: '60%' },
-            textAlign: { sm: 'left', md: 'center' },
-          }}
-        >
-          <Typography component="h2" variant="h4" gutterBottom>
-            Highlights
-          </Typography>
-          <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
-          </Typography>
-        </Box>
+        <Fade in={headerVisible} timeout={800}>
+          <Box
+            ref={headerRef}
+            sx={{
+              width: { sm: '100%', md: '60%' },
+              textAlign: { sm: 'left', md: 'center' },
+            }}
+          >
+            <Typography sx={{ color: 'primary.main' }} component="h2" variant="h4" gutterBottom>
+              Highlights
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+              Explore why our product stands out: adaptability, durability,
+              user-friendly design, and innovation. Enjoy reliable customer support and
+              precision in every detail.
+            </Typography>
+          </Box>
+        </Fade>
         <Grid container spacing={2}>
-          {items.map((item, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
-              <Stack
-                direction="column"
-                component={Card}
-                spacing={1}
-                useFlexGap
-                sx={{
-                  color: 'inherit',
-                  p: 3,
-                  height: '100%',
-                  borderColor: 'hsla(220, 25%, 25%, 0.3)',
-                  backgroundColor: 'grey.800',
-                }}
-              >
-                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
-                <div>
-                  <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
-                    {item.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'grey.400' }}>
-                    {item.description}
-                  </Typography>
-                </div>
-              </Stack>
-            </Grid>
-          ))}
+          {items.map((item, index) => {
+            // Calculate row-based index for timing delays
+            const getRowIndex = (itemIndex: number) => {
+              // For xs: 1 item per row, sm: 2 items per row, md: 3 items per row
+              // We'll use a responsive approach - calculate based on current screen size
+              const screenWidth = window.innerWidth;
+              let itemsPerRow = 1;
+
+              if (screenWidth >= 900) { // md breakpoint
+                itemsPerRow = 3;
+              } else if (screenWidth >= 600) { // sm breakpoint
+                itemsPerRow = 2;
+              }
+
+              return itemIndex % itemsPerRow;
+            };
+
+            const rowIndex = getRowIndex(index);
+
+            return (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
+                <Grow
+                  in={itemVisible[index]}
+                  timeout={800 + rowIndex * 800}
+                  style={{ transformOrigin: '0 0 0' }}
+                >
+                  <Stack
+                    ref={(el) => { itemRefs.current[index] = el; }}
+                    direction="column"
+                    component={Card}
+                    spacing={1}
+                    useFlexGap
+                    sx={{
+                      p: 3,
+                      height: '100%',
+                      bgcolor: 'secondary',
+                    }}
+                  >
+                    <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                    <div>
+                      <Typography gutterBottom sx={{ fontWeight: 'medium', color: 'text.primary' }}>
+                        {item.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: 'primary.light' }}>
+                        {item.description}
+                      </Typography>
+                    </div>
+                  </Stack>
+                </Grow>
+              </Grid>
+            );
+          })}
         </Grid>
       </Container>
     </Box>

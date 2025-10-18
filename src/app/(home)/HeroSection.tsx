@@ -70,7 +70,7 @@ function HeroSection() {
           <Typography
             sx={{
               textAlign: 'center',
-              color: 'text.secondary',
+              color: 'text.primary',
               width: { sm: '100%', md: '80%' },
             }}
           >
@@ -79,7 +79,7 @@ function HeroSection() {
           <Typography
             sx={{
               textAlign: 'center',
-              color: 'secondary.light',
+              color: 'text.secondary',
               width: { sm: '100%', md: '80%' },
             }}
           >

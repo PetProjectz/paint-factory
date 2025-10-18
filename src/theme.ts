@@ -55,7 +55,9 @@ const theme = createTheme({
             main: "#2196f3",
         },
         secondary: {
-            main: "#e91e63",
+            main: "#9e9e9e",
+            dark: "#616161",
+            light: "#e0e0e0",
         },
     },
 });
