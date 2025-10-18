@@ -1,15 +1,30 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
+import { alpha, createTheme, PaletteColor } from "@mui/material/styles";
 import { Roboto } from "next/font/google";
-
-import { getColor, backgroundInfoAlert } from "./colors";
 
 const roboto = Roboto({
     weight: ["300", "400", "500", "700"],
     subsets: ["latin"],
     display: "swap",
 });
+
+declare module "@mui/material/styles" {
+    interface Theme {
+        getAlphaColor: (
+            colorKey: keyof Theme["palette"],
+            opacity: number,
+            shade?: "light" | "main" | "dark"
+        ) => string;
+    }
+    interface ThemeOptions {
+        getAlphaColor?: (
+            colorKey: keyof Theme["palette"],
+            opacity: number,
+            shade?: "light" | "main" | "dark"
+        ) => string;
+    }
+}
 
 const theme = createTheme({
     colorSchemes: { light: true, dark: true },
@@ -27,7 +42,7 @@ const theme = createTheme({
                         {
                             props: { severity: "info" },
                             style: {
-                                backgroundColor: backgroundInfoAlert,
+                                backgroundColor: "#60a5fa",
                             },
                         },
                     ],
@@ -35,20 +50,19 @@ const theme = createTheme({
             },
         },
     },
-    // palette: {
-    //   primary: {
-    //     main: getColor('primary', 500),      // Base color
-    //     light: getColor('primary', 300),     // Lighter shade
-    //     dark: getColor('primary', 700),      // Darker shade
-    //     contrastText: getColor('neutral', 900), // Text color for contrast
-    //   },
-    //   secondary: {
-    //     main: getColor('secondary', 500),      // Base color
-    //     light: getColor('secondary', 300),     // Lighter shade
-    //     dark: getColor('secondary', 700),      // Darker shade
-    //     contrastText: getColor('neutral', 900), // Text color for contrast
-    //   }
-    // },
+    palette: {
+        primary: {
+            main: "#2196f3",
+        },
+        secondary: {
+            main: "#e91e63",
+        },
+    },
 });
+
+theme.getAlphaColor = (colorKey, opacity, shade = "main") => {
+    const color = theme.palette[colorKey] as PaletteColor;
+    return color ? alpha(color[shade], opacity) : "";
+};
 
 export default theme;

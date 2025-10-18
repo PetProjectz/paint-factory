@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import { ThemeMode } from '@/contexts/ThemeContext';
+import { useTheme } from '@mui/material/styles';
 
 interface HeroSectionServerProps {
   themeMode?: ThemeMode;
@@ -13,6 +14,7 @@ interface HeroSectionServerProps {
 
 function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerProps) {
   const isDarkMode = themeMode === ThemeMode.DARK;
+  const theme = useTheme();
   return (
     <Box
       id="hero"
@@ -20,8 +22,8 @@ function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerPro
         width: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundImage: isDarkMode
-          ? 'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)'
-          : 'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)',
+          ? `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.5, 'dark')}, transparent)`
+          : `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
       }}
     >
       <Container
@@ -87,10 +89,10 @@ function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerPro
             marginTop: 8,
             borderRadius: 1,
             outline: '6px solid',
-            outlineColor: isDarkMode ? 'hsla(220, 20%, 42%, 0.1)' : 'hsla(220, 25%, 80%, 0.2)',
+            outlineColor: isDarkMode ? theme.getAlphaColor('primary', 0.15, 'dark') : theme.getAlphaColor('primary', 0.15, 'light'),
             border: '1px solid',
             borderColor: isDarkMode ? 'grey.700' : 'grey.200',
-            boxShadow: isDarkMode ? '0 0 24px 12px hsla(210, 100%, 25%, 0.2)' : '0 0 12px 8px hsla(220, 25%, 80%, 0.2)',
+            boxShadow: isDarkMode ? `0 0 24px 12px ${theme.getAlphaColor('primary', 0.3, 'dark')}` : `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
             backgroundImage: isDarkMode
               ? `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg)`
               : `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg)`,
