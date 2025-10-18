@@ -7,10 +7,10 @@ import Box from '@mui/material/Box';
 import Footer from '@/components/footer/Footer';
 import NavBar from '@/components/navBar/NavBar';
 import ThemeLoadingFallback from '@/components/loadingFallback/ThemeLoadingFallback';
-import useTheme from '@/hooks/useTheme';
+import useThemeContext from '@/hooks/useThemeContext';
 
 function AppShell({ children }: { children: React.ReactNode }) {
-  const { isThemeReady } = useTheme();
+  const { isThemeReady } = useThemeContext();
 
   if (!isThemeReady) {
     return <ThemeLoadingFallback />;

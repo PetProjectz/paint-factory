@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
@@ -9,12 +11,10 @@ import Typography from '@mui/material/Typography';
 
 import { ThemeMode } from '@/contexts/ThemeContext';
 import { useTheme } from '@mui/material/styles';
+import useThemeContext from '@/hooks/useThemeContext';
 
-interface HeroSectionServerProps {
-  themeMode?: ThemeMode;
-}
-
-function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerProps) {
+function HeroSection() {
+  const { themeMode } = useThemeContext();
   const isDarkMode = themeMode === ThemeMode.DARK;
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
@@ -131,4 +131,4 @@ function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerPro
   );
 }
 
-export default HeroSectionServer;
+export default HeroSection;
