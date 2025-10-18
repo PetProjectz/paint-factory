@@ -15,6 +15,11 @@ interface HeroSectionServerProps {
 function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerProps) {
   const isDarkMode = themeMode === ThemeMode.DARK;
   const theme = useTheme();
+
+  const backgroundImage = isDarkMode
+    ? `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg)`
+    : `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg)`;
+
   return (
     <Box
       id="hero"
@@ -93,9 +98,7 @@ function HeroSectionServer({ themeMode = ThemeMode.LIGHT }: HeroSectionServerPro
             border: '1px solid',
             borderColor: isDarkMode ? 'grey.700' : 'grey.200',
             boxShadow: isDarkMode ? `0 0 24px 12px ${theme.getAlphaColor('primary', 0.3, 'dark')}` : `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
-            backgroundImage: isDarkMode
-              ? `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg)`
-              : `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg)`,
+            backgroundImage: backgroundImage,
             backgroundSize: 'cover',
             '@media (min-width: 600px)': {
               marginTop: 10,
