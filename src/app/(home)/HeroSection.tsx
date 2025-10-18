@@ -25,6 +25,7 @@ function HeroSection() {
       id="hero"
       sx={{
         width: '100%',
+        minHeight: '100vh',
         backgroundRepeat: 'no-repeat',
         backgroundImage: isDarkMode
           ? `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.5, 'dark')}, transparent)`
