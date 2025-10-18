@@ -3,7 +3,7 @@ import * as React from 'react';
 import HeroSection from '@/app/(home)/HeroSection';
 import HighlightsSection from '@/app/(home)/HighlightsSection';
 
-export default function Home() {
+function Home() {
   return (
     <>
       <HeroSection />
@@ -13,3 +13,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

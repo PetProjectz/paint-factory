@@ -12,6 +12,7 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
+import NextLink from 'next/link';
 import Toolbar from '@mui/material/Toolbar';
 
 import ColorModeIconDropdown from '@/components/navBar/ColorModeIconDropDown';
@@ -57,16 +58,16 @@ export default function NavBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             {/* <Sitemark /> */}
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="small" component={NextLink} href="/">
                 Home
               </Button>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="small" component={NextLink} href="/about">
                 About
               </Button>
-              <Button variant="text" color="info" size="small" >
+              <Button variant="text" color="info" size="small" component={NextLink} href="/faq">
                 FAQ
               </Button>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="small" component={NextLink} href="/contact">
                 Contact
               </Button>
             </Box>
@@ -109,10 +110,10 @@ export default function NavBar() {
                   </IconButton>
                 </Box>
 
-                <MenuItem>Home</MenuItem>
-                <MenuItem>About</MenuItem>
-                <MenuItem>FAQ</MenuItem>
-                <MenuItem>Contact</MenuItem>
+                <MenuItem component={NextLink} href="/">Home</MenuItem>
+                <MenuItem component={NextLink} href="/about">About</MenuItem>
+                <MenuItem component={NextLink} href="/faq">FAQ</MenuItem>
+                <MenuItem component={NextLink} href="/contact">Contact</MenuItem>
               </Box>
             </Drawer>
           </Box>
