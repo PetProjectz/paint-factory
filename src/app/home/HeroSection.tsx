@@ -13,7 +13,6 @@ import { useTheme } from '@mui/material/styles';
 
 function HeroSection() {
   const [imageLoaded, setImageLoaded] = React.useState(false);
-
   const theme = useTheme();
 
   return (
@@ -23,7 +22,11 @@ function HeroSection() {
         width: '100%',
         minHeight: '100vh',
         backgroundRepeat: 'no-repeat',
-        backgroundImage: `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
+        backgroundImage: `radial-gradient(
+          ellipse 80% 50% at 50% -20%,
+          ${theme.getAlphaColor('primary', 0.55, 'light')},
+          transparent
+        )`,
       }}
     >
       <Container
@@ -35,8 +38,9 @@ function HeroSection() {
           pb: { xs: 8, sm: 12 },
         }}
       >
+        {/* TEXT CONTENT */}
         <Stack
-          spacing={2}
+          spacing={2.5}
           useFlexGap
           sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
         >
@@ -46,73 +50,83 @@ function HeroSection() {
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               alignItems: 'center',
-              fontSize: 'clamp(3rem, 10vw, 3.5rem)',
+              fontSize: 'clamp(3rem, 9vw, 3.8rem)',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
             }}
           >
-            Glazyara&nbsp;
+            GOLDLAC&nbsp;
             <Typography
               component="span"
               variant="h1"
               sx={{
                 fontSize: 'inherit',
                 color: 'primary.dark',
+                fontWeight: 800,
               }}
             >
-              Reach
+              PAINTS
             </Typography>
           </Typography>
+
           <Typography
             sx={{
               textAlign: 'center',
               color: 'text.primary',
-              width: { sm: '100%', md: '80%' },
+              fontSize: '1.15rem',
+              width: { sm: '100%', md: '85%' },
             }}
           >
-            We Help Brands Grow Smarter
+            Premium Paint Solutions for Superior Protection and Finish
           </Typography>
+
           <Typography
             sx={{
               textAlign: 'center',
               color: 'text.secondary',
-              width: { sm: '100%', md: '80%' },
+              width: { sm: '100%', md: '85%' },
             }}
           >
-            Boost your visibility, drive real engagement, and turn clicks into customers.
+            Engineered coatings designed to enhance durability, resist harsh
+            environments, and deliver long-lasting aesthetic excellence for
+            residential, commercial, and industrial surfaces.
           </Typography>
         </Stack>
-        <Grow in={imageLoaded} timeout={600}>
+
+        {/* HERO IMAGE */}
+        <Grow in={imageLoaded} timeout={700}>
           <Box
             id="image"
             sx={{
               alignSelf: 'center',
               width: '100%',
-              height: 400,
-              marginTop: 8,
-              borderRadius: 1,
+              height: 420,
+              mt: 8,
+              borderRadius: 2,
               outline: '6px solid',
-              outlineColor: theme.getAlphaColor('primary', 0.15, 'light'),
+              outlineColor: theme.getAlphaColor('primary', 0.12, 'light'),
               border: '1px solid',
               borderColor: 'grey.200',
-              boxShadow: `0 0 12px 8px ${theme.getAlphaColor('primary', 0.3, 'light')}`,
+              boxShadow: `0 25px 60px ${theme.getAlphaColor(
+                'primary',
+                0.25,
+                'light'
+              )}`,
               position: 'relative',
               overflow: 'hidden',
               '@media (min-width: 600px)': {
-                marginTop: 10,
-                height: 700,
+                mt: 10,
+                height: 680,
               },
             }}
           >
             <Image
-              src={`${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg`}
-              alt="Hero Image"
+              src="/images/hero-paint.jpg" // replace with real Goldlac image
+              alt="Goldlac Paint Applications"
               fill
-              style={{
-                objectFit: 'cover',
-              }}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+              style={{ objectFit: 'cover' }}
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              sizes="(max-width: 768px) 100vw, 100vw"
               onLoad={() => setImageLoaded(true)}
             />
           </Box>
