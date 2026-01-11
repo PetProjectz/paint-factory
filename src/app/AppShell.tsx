@@ -1,48 +1,31 @@
 'use client';
 
-import React, { ReactNode } from 'react';
-import { Box, Container, AppBar, Toolbar, Typography } from '@mui/material';
+import React from 'react';
 
-export default function AppShell({ children }: { children: ReactNode }) {
+import Box from '@mui/material/Box';
+
+import Footer from '@/components/footer/Footer';
+import NavBar from '@/components/navBar/NavBar';
+
+function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* NAVIGATION */}
-      <AppBar position="static">
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" color="inherit" sx={{ fontWeight: 'bold' }}>
-            Goldlac
-          </Typography>
-          <Box>
-            <a href="/" style={{ marginRight: 16, color: 'inherit', textDecoration: 'none' }}>
-              Home
-            </a>
-            <a href="/products" style={{ marginRight: 16, color: 'inherit', textDecoration: 'none' }}>
-              Products
-            </a>
-            <a href="/about" style={{ color: 'inherit', textDecoration: 'none' }}>
-              About
-            </a>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      {/* MAIN CONTENT */}
-      <Container sx={{ mt: 4, flexGrow: 1 }}>{children}</Container>
-
-      {/* FOOTER */}
+    <>
+      <NavBar />
       <Box
-        component="footer"
+        component="main"
         sx={{
-          mt: 8,
-          py: 4,
-          textAlign: 'center',
-          bgcolor: 'primary.main',
-          color: 'white',
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          pt: 0,
         }}
       >
-        © {new Date().getFullYear()} Goldlac Paints. All rights reserved.
+        {children}
       </Box>
-    </Box>
+      <Footer />
+    </>
   );
 }
 
+export default AppShell;
