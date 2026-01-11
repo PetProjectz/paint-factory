@@ -49,7 +49,7 @@ function HeroSection() {
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Glazyara&nbsp;
+            Goldlac&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -58,7 +58,7 @@ function HeroSection() {
                 color: 'primary.dark',
               }}
             >
-              Reach
+              Paints
             </Typography>
           </Typography>
           <Typography
@@ -68,7 +68,7 @@ function HeroSection() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            We Help Brands Grow Smarter
+            Excellence of New Generation
           </Typography>
           <Typography
             sx={{
@@ -77,7 +77,7 @@ function HeroSection() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Boost your visibility, drive real engagement, and turn clicks into customers.
+            A Premium Sri Lankan Product
           </Typography>
         </Stack>
         <Grow in={imageLoaded} timeout={600}>
@@ -86,7 +86,7 @@ function HeroSection() {
             sx={{
               alignSelf: 'center',
               width: '100%',
-              height: 400,
+              aspectRatio: '1200/628',
               marginTop: 8,
               borderRadius: 1,
               outline: '6px solid',
@@ -98,12 +98,11 @@ function HeroSection() {
               overflow: 'hidden',
               '@media (min-width: 600px)': {
                 marginTop: 10,
-                height: 700,
               },
             }}
           >
             <Image
-              src={`${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg`}
+              src="/hero.jpg"
               alt="Hero Image"
               fill
               style={{

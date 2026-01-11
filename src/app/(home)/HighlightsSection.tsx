@@ -12,47 +12,47 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
+import PaletteRoundedIcon from '@mui/icons-material/PaletteRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
-import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
-    description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
-  },
-  {
     icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    title: 'Superior Durability',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Formulated to withstand extreme weather conditions, ensuring long-lasting protection and surface integrity.',
   },
   {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    icon: <SettingsSuggestRoundedIcon />,
+    title: 'Advanced Formulations',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'Engineered using modern coating technology to deliver consistent finish, high coverage, and strong adhesion.',
   },
   {
     icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    title: 'Weather & Moisture Resistance',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'Designed to resist moisture penetration, UV exposure, and surface deterioration over time.',
   },
   {
-    icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    icon: <ThumbUpAltRoundedIcon />,
+    title: 'Professional Finish',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Provides smooth application, rich color depth, and a premium finish trusted by professionals.',
   },
   {
-    icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    icon: <PaletteRoundedIcon />,
+    title: 'Wide Color Range',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Extensive selection of vibrant colors and shades to match any design vision and aesthetic preference.',
+  },
+  {
+    icon: <LocationOnRoundedIcon />,
+    title: 'Sri Lankan Made',
+    description:
+      'Proudly manufactured in Sri Lanka with local expertise, supporting the local economy and ensuring quality craftsmanship.',
   },
 ];
 
@@ -134,9 +134,8 @@ export default function HighlightsSection() {
               Highlights
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-              Explore why our product stands out: adaptability, durability,
-              user-friendly design, and innovation. Enjoy reliable customer support and
-              precision in every detail.
+              Experience premium quality paints with superior durability, advanced formulations, and weather resistance.
+              Choose from our wide color range and enjoy a professional finish, all proudly made in Sri Lanka.
             </Typography>
           </Box>
         </Fade>
