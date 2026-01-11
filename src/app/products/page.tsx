@@ -157,15 +157,6 @@ export default function Products() {
                     >
                       {product.name}
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: 'text.secondary',
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {product.description}
-                    </Typography>
                   </CardContent>
                 </Card>
               </Grid>
