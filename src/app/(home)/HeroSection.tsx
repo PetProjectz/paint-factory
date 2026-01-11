@@ -49,7 +49,6 @@ function HeroSection() {
               fontSize: 'clamp(3rem, 10vw, 3.5rem)',
             }}
           >
-            Goldlac&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -58,8 +57,9 @@ function HeroSection() {
                 color: 'primary.dark',
               }}
             >
-              Paints
+              Goldlac&nbsp;
             </Typography>
+              Paints
           </Typography>
           <Typography
             sx={{
