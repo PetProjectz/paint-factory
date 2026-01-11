@@ -15,7 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NextLink from 'next/link';
 import Toolbar from '@mui/material/Toolbar';
 
-// import Sitemark from './SitemarkIcon';
+import SiteMark from '../footer/SiteMark';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -54,22 +54,22 @@ export default function NavBar() {
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
-          <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            {/* <Sitemark /> */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" color="info" size="small" component={NextLink} href="/">
-                Home
-              </Button>
-              <Button variant="text" color="info" size="small" component={NextLink} href="/about">
-                About
-              </Button>
-              <Button variant="text" color="info" size="small" component={NextLink} href="/faq">
-                FAQ
-              </Button>
-              <Button variant="text" color="info" size="small" component={NextLink} href="/contact">
-                Contact
-              </Button>
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <SiteMark />
+          </Box>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
+            <Button variant="text" color="info" size="small" component={NextLink} href="/">
+              Home
+            </Button>
+            <Button variant="text" color="info" size="small" component={NextLink} href="/about">
+              About Us
+            </Button>
+            <Button variant="text" color="info" size="small" component={NextLink} href="/products">
+              Products
+            </Button>
+            <Button variant="text" color="info" size="small" component={NextLink} href="/contact">
+              Contact Us
+            </Button>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -100,9 +100,9 @@ export default function NavBar() {
                 </Box>
 
                 <MenuItem component={NextLink} href="/" onClick={toggleDrawer(false)}>Home</MenuItem>
-                <MenuItem component={NextLink} href="/about" onClick={toggleDrawer(false)}>About</MenuItem>
-                <MenuItem component={NextLink} href="/faq" onClick={toggleDrawer(false)}>FAQ</MenuItem>
-                <MenuItem component={NextLink} href="/contact" onClick={toggleDrawer(false)}>Contact</MenuItem>
+                <MenuItem component={NextLink} href="/about" onClick={toggleDrawer(false)}>About Us</MenuItem>
+                <MenuItem component={NextLink} href="/products" onClick={toggleDrawer(false)}>Products</MenuItem>
+                <MenuItem component={NextLink} href="/contact" onClick={toggleDrawer(false)}>Contact Us</MenuItem>
               </Box>
             </Drawer>
           </Box>

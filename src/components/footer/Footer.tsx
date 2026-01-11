@@ -1,20 +1,17 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
-// import SitemarkIcon from './SitemarkIcon';
 import Copyright from '@/components/footer/Copyright';
 
 export default function Footer() {
@@ -37,124 +34,96 @@ export default function Footer() {
             flexDirection: { xs: 'column', sm: 'row' },
             width: '100%',
             justifyContent: 'space-between',
+            gap: { xs: 4, sm: 2 },
+            alignItems: { xs: 'center', sm: 'flex-start' },
           }}
         >
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 4,
-              minWidth: { xs: '100%', sm: '60%' },
+              alignItems: { xs: 'center', sm: 'flex-start' },
+              gap: 1,
+              width: { xs: '100%', sm: 'auto' },
             }}
           >
-            <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
-              {/* <SitemarkIcon /> */}
-              <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
-                Join the newsletter
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-                Subscribe for weekly updates. No spams ever!
-              </Typography>
-              <InputLabel htmlFor="email-newsletter">Email</InputLabel>
-              <Stack direction="row" spacing={1} useFlexGap>
-                <TextField
-                  id="email-newsletter"
-                  hiddenLabel
-                  size="small"
-                  variant="outlined"
-                  fullWidth
-                  aria-label="Enter your email address"
-                  placeholder="Your email address"
-                  slotProps={{
-                    htmlInput: {
-                      autoComplete: 'off',
-                      'aria-label': 'Enter your email address',
-                    },
-                  }}
-                  sx={{ width: '250px' }}
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  sx={{ flexShrink: 0 }}
-                >
-                  Subscribe
-                </Button>
-              </Stack>
-            </Box>
+            {/* Follow Us */}
+            <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 'medium' }}>
+              Follow Us
+            </Typography>
+            <Stack
+              direction="row"
+              spacing={1}
+              useFlexGap
+              sx={{
+                justifyContent: { xs: 'center', sm: 'flex-start' },
+                color: 'text.secondary',
+              }}
+            >
+              <IconButton
+                color="inherit"
+                size="small"
+                href="https://www.facebook.com/profile.php?id=61556343994194"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookIcon />
+              </IconButton>
+              <IconButton
+                color="inherit"
+                size="small"
+                href="#"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstagramIcon />
+              </IconButton>
+              <IconButton
+                color="inherit"
+                size="small"
+                href="#"
+                aria-label="YouTube"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YouTubeIcon />
+              </IconButton>
+            </Stack>
           </Box>
+
+          {/* Quick Links */}
           <Box
             sx={{
-              display: { xs: 'none', sm: 'flex' },
+              display: 'flex',
               flexDirection: 'column',
               gap: 1,
+              alignItems: { xs: 'center', sm: 'flex-end' },
+              width: { xs: '100%', sm: 'auto' },
             }}
           >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Product
+            <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 'medium' }}>
+              Quick Links
             </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Features
+            <Link color="text.secondary" variant="body2" href="/products">
+              Products
             </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Testimonials
+            <Link color="text.secondary" variant="body2" href="/about">
+              About Us
             </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Highlights
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Pricing
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              FAQs
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'flex' },
-              flexDirection: 'column',
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Company
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              About us
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Careers
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Press
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'flex' },
-              flexDirection: 'column',
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-              Legal
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Terms
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Privacy
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Contact
+            <Link color="text.secondary" variant="body2" href="/contact">
+              Contact Us
             </Link>
           </Box>
         </Box>
+
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
             pt: { xs: 4, sm: 8 },
             width: '100%',
             borderTop: '1px solid',
@@ -162,42 +131,19 @@ export default function Footer() {
           }}
         >
           <div>
-            <Link color="text.secondary" variant="body2" href="#">
-              Privacy Policy
-            </Link>
-            <Typography sx={{ display: 'inline', mx: 0.5, opacity: 0.5 }}>
-              &nbsp;•&nbsp;
+            <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+              Powered by{' '}
+              <Link
+                color="text.secondary"
+                href="https://www.facebook.com/profile.php?id=61581866430688"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Boostify
+              </Link>
             </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Terms of Service
-            </Link>
             <Copyright />
           </div>
-          <Stack
-            direction="row"
-            spacing={1}
-            useFlexGap
-            sx={{ justifyContent: 'left', color: 'text.secondary' }}
-          >
-            <IconButton
-              color="inherit"
-              size="small"
-              href="https://x.com/MaterialUI"
-              aria-label="X"
-              sx={{ alignSelf: 'center' }}
-            >
-              <TwitterIcon />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              size="small"
-              href="https://www.linkedin.com/company/mui/"
-              aria-label="LinkedIn"
-              sx={{ alignSelf: 'center' }}
-            >
-              <LinkedInIcon />
-            </IconButton>
-          </Stack>
         </Box>
       </Container>
     </>
