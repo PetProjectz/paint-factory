@@ -35,7 +35,7 @@ const products = [
   },
   {
     id: 5,
-    name: 'Standard Color',
+    name: 'Standard Colour',
     image: '/products/product5.jpg',
   },
   {
