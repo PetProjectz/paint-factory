@@ -3,6 +3,7 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -10,6 +11,7 @@ import { useTheme } from '@mui/material/styles';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
+import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 
 export default function About() {
   const theme = useTheme();
@@ -96,7 +98,9 @@ export default function About() {
                 p: 3,
                 borderRadius: 2,
                 bgcolor: 'background.paper',
-                boxShadow: 2,
+                border: '1px solid',
+                borderColor: 'divider',
+                boxShadow: 4,
               }}
             >
               <CalendarTodayRoundedIcon
@@ -121,7 +125,9 @@ export default function About() {
                 p: 3,
                 borderRadius: 2,
                 bgcolor: 'background.paper',
-                boxShadow: 2,
+                border: '1px solid',
+                borderColor: 'divider',
+                boxShadow: 4,
               }}
             >
               <LocationOnRoundedIcon
@@ -143,7 +149,9 @@ export default function About() {
               p: 4,
               borderRadius: 2,
               bgcolor: 'background.paper',
-              boxShadow: 2,
+              border: '1px solid',
+              borderColor: 'divider',
+              boxShadow: 4,
               maxWidth: '900px',
               width: '100%',
             }}
@@ -176,6 +184,64 @@ export default function About() {
               products that stand the test of time. Our mission is to provide exceptional value while
               supporting local manufacturing and contributing to the growth of Sri Lanka's economy.
             </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              mt: 4,
+              p: 4,
+              borderRadius: 2,
+              bgcolor: 'background.paper',
+              border: '1px solid',
+              borderColor: 'divider',
+              boxShadow: 4,
+              maxWidth: '900px',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 3,
+            }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 2,
+              }}
+            >
+              <VerifiedRoundedIcon sx={{ fontSize: 40, color: 'primary.main' }} />
+              <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+                IDB Verified Business
+              </Typography>
+            </Box>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.secondary',
+                lineHeight: 1.8,
+                fontSize: '1.1rem',
+                textAlign: 'center',
+              }}
+            >
+              Our business is verified by the Industrial Development Board of Sri Lanka (IDB),
+              confirming our commitment to quality, standards, and contribution to Sri Lanka's
+              industrial development.
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              href="https://bizconnect.idb.gov.lk/listing/kurunegala/inks-chemicals-printing-materials/goldlac-paint-and-coating/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                mt: 2,
+              }}
+            >
+              View Our IDB Profile
+            </Button>
           </Box>
         </Stack>
       </Container>
