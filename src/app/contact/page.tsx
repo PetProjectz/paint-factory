@@ -8,9 +8,9 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
-import PhoneRoundedIcon from '@mui/icons-material/PhoneRounded';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import Link from '@mui/material/Link';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export default function Contact() {
   const theme = useTheme();
@@ -128,41 +128,6 @@ export default function Contact() {
                 boxShadow: 2,
               }}
             >
-              <PhoneRoundedIcon
-                sx={{ fontSize: 48, color: 'primary.main', opacity: 0.8 }}
-              />
-              <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
-                Phone
-              </Typography>
-              <Link
-                href="tel:+94772500061"
-                sx={{
-                  color: 'primary.main',
-                  textDecoration: 'none',
-                  '&:hover': {
-                    textDecoration: 'underline',
-                  },
-                }}
-              >
-                <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                  077 250 0061
-                </Typography>
-              </Link>
-            </Box>
-
-            <Box
-              sx={{
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 2,
-                p: 4,
-                borderRadius: 2,
-                bgcolor: 'background.paper',
-                boxShadow: 2,
-              }}
-            >
               <EmailRoundedIcon
                 sx={{ fontSize: 48, color: 'primary.main', opacity: 0.8 }}
               />
@@ -181,6 +146,41 @@ export default function Contact() {
               >
                 <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
                   goldlac@yahoo.com
+                </Typography>
+              </Link>
+            </Box>
+
+            <Box
+              sx={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 2,
+                p: 4,
+                borderRadius: 2,
+                bgcolor: 'background.paper',
+                boxShadow: 2,
+              }}
+            >
+              <WhatsAppIcon
+                sx={{ fontSize: 48, color: 'primary.main', opacity: 0.8 }}
+              />
+              <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+                WhatsApp
+              </Typography>
+              <Link
+                href="https://wa.me/94772500061"
+                sx={{
+                  color: 'primary.main',
+                  textDecoration: 'none',
+                  '&:hover': {
+                    textDecoration: 'underline',
+                  },
+                }}
+              >
+                <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
+                  +94772500061
                 </Typography>
               </Link>
             </Box>
