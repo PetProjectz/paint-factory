@@ -3,47 +3,15 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import Image from 'next/image';
 
-const products = [
-  {
-    id: 1,
-    name: 'Aquashade Max',
-    image: '/products/product1.jpg',
-  },
-  {
-    id: 2,
-    name: 'Ultra Premium White',
-    image: '/products/product2.jpg',
-  },
-  {
-    id: 3,
-    name: 'Ultra Roof Coat',
-    image: '/products/product3.jpg',
-  },
-  {
-    id: 4,
-    name: 'Ultrashield White',
-    image: '/products/product4.jpg',
-  },
-  {
-    id: 5,
-    name: 'Standard Color',
-    image: '/products/product5.jpg',
-  },
-  {
-    id: 6,
-    name: 'Crack Bridging Premier',
-    image: '/products/product6.jpg',
-  },
-];
+import BasicCategory from './categories/BasicCategory';
+import StandardCategory from './categories/StandardCategory';
+import PremiumCategory from './categories/PremiumCategory';
+import UltraPremiumCategory from './categories/UltraPremiumCategory';
 
 export default function Products() {
   const theme = useTheme();
@@ -74,6 +42,7 @@ export default function Products() {
             alignItems: 'center',
             width: '100%',
             textAlign: 'center',
+            mb: 6,
           }}
         >
           <Typography
@@ -98,71 +67,14 @@ export default function Products() {
               Products
             </Typography>
           </Typography>
-
-          <Typography
-            variant="h5"
-            sx={{
-              color: 'text.primary',
-              fontWeight: 'medium',
-              maxWidth: '600px',
-            }}
-          >
-            Discover our premium paint collection
-          </Typography>
-
-          <Grid container spacing={3} sx={{ width: '100%', mt: 2 }}>
-            {products.map((product) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={product.id}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    borderRadius: 2,
-                    boxShadow: 3,
-                    overflow: 'hidden',
-                    transition: 'transform 0.2s, box-shadow 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-4px)',
-                      boxShadow: 6,
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      width: '100%',
-                      aspectRatio: '4/3',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <Image
-                      src={product.image}
-                      alt={`${product.name} - Premium Quality Paint by Goldlac Paints`}
-                      fill
-                      style={{
-                        objectFit: 'cover',
-                      }}
-                    />
-                  </Box>
-                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                    <Typography
-                      variant="h6"
-                      component="h3"
-                      sx={{
-                        fontWeight: 'bold',
-                        color: 'text.primary',
-                        mb: 1,
-                      }}
-                    >
-                      {product.name}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
         </Stack>
+
+        <Box sx={{ width: '100%' }}>
+          <UltraPremiumCategory />
+          <PremiumCategory />
+          <StandardCategory />
+          <BasicCategory />
+        </Box>
       </Container>
     </Box>
   );
