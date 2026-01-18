@@ -61,6 +61,7 @@ export default function PremiumCategory() {
             <ProductCard
               id={product.id}
               name={product.name}
+              description={product.description}
               image={product.image}
             />
           </Grid>

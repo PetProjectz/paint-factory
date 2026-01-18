@@ -12,23 +12,39 @@ import ProductCard from '../../../components/productCard/ProductCard';
 const products = [
   {
     id: 1,
-    name: 'Exterior Standard',
+    name: 'Aquashade Exterior Waterproofing Paint',
+    description: 'Exterior Standard Emulsion',
     image: '/standard/exterior-standard.jpg',
   },
   {
     id: 2,
-    name: 'Exterior Undercoat Standard',
+    name: 'Exterior Filler',
+    description: 'Standard Undercoat',
     image: '/standard/exterior-undercoat-standard.jpg',
   },
   {
     id: 3,
-    name: 'Interior Undercoat Standard',
+    name: 'Interior Filler',
+    description: 'Standard Undercoat',
     image: '/standard/interior-undercoat-standard.jpg',
   },
   {
     id: 4,
-    name: 'Interior White Standard',
+    name: 'Interior Brilliant White',
+    description: 'Standard Collection',
     image: '/standard/interior-white-standard.jpg',
+  },
+  {
+    id: 5,
+    name: 'Colour Emulsion',
+    description: 'Standard Interior Matt Colour Emulsion',
+    image: '/standard/colour-emultion.jpg',
+  },
+  {
+    id: 6,
+    name: 'Bonding Polymer',
+    description: 'Waterproofing Elastrometric Bonding Solution',
+    image: '/standard/bonding-polymer.jpg',
   },
 ];
 
@@ -80,6 +96,7 @@ export default function StandardCategory() {
             <ProductCard
               id={product.id}
               name={product.name}
+              description={product.description}
               image={product.image}
             />
           </Grid>
