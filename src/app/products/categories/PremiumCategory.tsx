@@ -7,9 +7,9 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import ProductCard from '../../../components/productCard/ProductCard';
+import ProductCard, { type ProductCardProps } from '../../../components/productCard/ProductCard';
 
-const products = [
+const products: ProductCardProps[] = [
 
 ];
 
