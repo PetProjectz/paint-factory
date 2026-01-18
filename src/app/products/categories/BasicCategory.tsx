@@ -7,17 +7,19 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import ProductCard from '../../../components/productCard/ProductCard';
+import ProductCard, { type ProductCardProps } from '../../../components/productCard/ProductCard';
 
-const products = [
+const products: ProductCardProps[] = [
   {
     id: 1,
-    name: 'Exterior Basic',
+    name: 'Exterior Guard',
+    description: 'Exterior Basic Emulsion',
     image: '/basic/exterior-basic.jpg',
   },
   {
     id: 2,
-    name: 'Interior Basic',
+    name: 'Interior Flat White',
+    description: 'Interior Basic Emulsion',
     image: '/basic/interior-basic.jpg',
   },
 ];
@@ -70,6 +72,7 @@ export default function BasicCategory() {
             <ProductCard
               id={product.id}
               name={product.name}
+              description={product.description}
               image={product.image}
             />
           </Grid>

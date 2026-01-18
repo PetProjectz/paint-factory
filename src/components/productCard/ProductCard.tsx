@@ -11,10 +11,11 @@ import Image from 'next/image';
 export interface ProductCardProps {
   id: number;
   name: string;
+  description: string;
   image: string;
 }
 
-export default function ProductCard({ id, name, image }: ProductCardProps) {
+export default function ProductCard({ id, name, description, image }: ProductCardProps) {
   return (
     <Card
       sx={{
@@ -59,6 +60,15 @@ export default function ProductCard({ id, name, image }: ProductCardProps) {
           }}
         >
           {name}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: 'text.secondary',
+            mb: 1,
+          }}
+        >
+          {description}
         </Typography>
       </CardContent>
     </Card>
