@@ -103,7 +103,7 @@ function HeroSection() {
           >
             <Image
               src="/hero.jpg"
-              alt="Hero Image"
+              alt="Goldlac Paints - Premium Quality Paints and Coatings manufactured in Sri Lanka"
               fill
               style={{
                 objectFit: 'cover',
