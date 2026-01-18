@@ -55,7 +55,7 @@ export default function NavBar() {
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <SiteMark />
+            <SiteMark linkToHome />
           </Box>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
             <Button variant="text" color="info" size="small" component={NextLink} href="/">

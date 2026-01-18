@@ -138,7 +138,7 @@ export default function Products() {
                   >
                     <Image
                       src={product.image}
-                      alt={product.name}
+                      alt={`${product.name} - Premium Quality Paint by Goldlac Paints`}
                       fill
                       style={{
                         objectFit: 'cover',
