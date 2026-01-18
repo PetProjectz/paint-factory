@@ -13,8 +13,13 @@ import Image from 'next/image';
 const products = [
   {
     id: 1,
-    name: 'Product Name',
-    image: '/products/product1.jpg',
+    name: 'Exterior Basic',
+    image: '/basic/exterior-basic.jpg',
+  },
+  {
+    id: 2,
+    name: 'Interior Basic',
+    image: '/basic/interior-basic.jpg',
   },
 ];
 

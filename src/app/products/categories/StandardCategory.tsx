@@ -12,9 +12,24 @@ import Image from 'next/image';
 
 const products = [
   {
-    id: 5,
-    name: 'Standard Color',
-    image: '/products/product5.jpg',
+    id: 1,
+    name: 'Exterior Standard',
+    image: '/standard/exterior-standard.jpg',
+  },
+  {
+    id: 2,
+    name: 'Exterior Undercoat Standard',
+    image: '/standard/exterior-undercoat-standard.jpg',
+  },
+  {
+    id: 3,
+    name: 'Interior Undercoat Standard',
+    image: '/standard/interior-undercoat-standard.jpg',
+  },
+  {
+    id: 4,
+    name: 'Interior White Standard',
+    image: '/standard/interior-white-standard.jpg',
   },
 ];
 

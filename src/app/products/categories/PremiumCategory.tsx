@@ -11,21 +11,7 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
 const products = [
-  {
-    id: 1,
-    name: 'Aquashade Max',
-    image: '/products/product1.jpg',
-  },
-  {
-    id: 3,
-    name: 'Ultra Roof Coat',
-    image: '/products/product3.jpg',
-  },
-  {
-    id: 4,
-    name: 'Ultrashield White',
-    image: '/products/product4.jpg',
-  },
+
 ];
 
 const categoryInfo = {

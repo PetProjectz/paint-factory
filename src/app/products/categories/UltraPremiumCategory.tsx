@@ -11,16 +11,6 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
 const products = [
-  {
-    id: 2,
-    name: 'Ultra Premium White',
-    image: '/products/product2.jpg',
-  },
-  {
-    id: 6,
-    name: 'Crack Bridging Premier',
-    image: '/products/product6.jpg',
-  },
 ];
 
 const categoryInfo = {
