@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     template: '%s | Goldlac Paints',
   },
   description:
-    'Goldlac Paints - Excellence of New Generation. Premium quality paints and coatings manufactured in Sri Lanka. Superior durability, advanced formulations, and professional finish. IDB verified business.',
+    'Goldlac Paints - Excellence of New Generation. Premium quality paints and coatings \
+    manufactured in Sri Lanka. Superior durability, advanced formulations, and professional \
+    finish. IDB verified business.',
   keywords: [
     'Goldlac Paints',
     'paints Sri Lanka',
@@ -90,6 +92,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href={siteUrl} />
+        <meta name="msvalidate.01" content="99605041325C02C0FE79F978DEBF2848" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
