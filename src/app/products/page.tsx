@@ -10,8 +10,8 @@ import { useTheme } from '@mui/material/styles';
 
 import BasicCategory from './categories/BasicCategory';
 import StandardCategory from './categories/StandardCategory';
-import PremiumCategory from './categories/PremiumCategory';
-import UltraPremiumCategory from './categories/UltraPremiumCategory';
+// import PremiumCategory from './categories/PremiumCategory';
+// import UltraPremiumCategory from './categories/UltraPremiumCategory';
 
 export default function Products() {
   const theme = useTheme();
@@ -70,8 +70,8 @@ export default function Products() {
         </Stack>
 
         <Box sx={{ width: '100%' }}>
-          <UltraPremiumCategory />
-          <PremiumCategory />
+          {/* <UltraPremiumCategory />
+          <PremiumCategory /> */}
           <StandardCategory />
           <BasicCategory />
         </Box>
