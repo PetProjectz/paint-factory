@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     'Goldlac Paints - Premium quality paints and coatings manufactured in Sri Lanka. Superior durability and professional finish. IDB verified.',
   keywords: [
     'Goldlac Paints',
+    'Goldlack Paints',
     'paints Sri Lanka',
     'premium paints',
     'paint coatings',
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     'IDB verified paints',
     'Kurunegala paints',
     'Kithalawa paints',
+    'Kuliyapitiya Paints',
   ],
   authors: [{ name: 'Goldlac Paints' }],
   creator: 'Goldlac Paints',
@@ -82,6 +84,10 @@ export const metadata: Metadata = {
   verification: {
     google: 'rLp-bukiQ7Bli8V-Kv0QxWloozGQwiktiQKTl4n4CGw',
   },
+  icons: {
+    icon: '/logo.jpg',
+    apple: '/logo.jpg',
+  },
 };
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -99,7 +105,12 @@ export default function RootLayout(props: { children: React.ReactNode }) {
               description:
                 'Premium quality paints and coatings manufacturer in Sri Lanka. Excellence of New Generation.',
               url: siteUrl,
-              logo: `${siteUrl}/logo.jpg`,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${siteUrl}/logo.jpg`,
+                width: 512,
+                height: 512,
+              },
               image: `${siteUrl}/hero.jpg`,
               address: {
                 '@type': 'PostalAddress',

@@ -13,7 +13,7 @@ export default function SiteMark({ linkToHome = false }: SiteMarkProps) {
     <Image
       src="/logo.jpg"
       alt="Goldlac Paints - Premium Quality Paints and Coatings Logo"
-      width={60}
+      width={120}
       height={60}
       style={{
         objectFit: 'contain',
@@ -27,12 +27,23 @@ export default function SiteMark({ linkToHome = false }: SiteMarkProps) {
         display: 'flex',
         alignItems: 'center',
         gap: 1,
+        height: 60,
       }}
     >
       {linkToHome ? (
-        <NextLink href="/" aria-label="Goldlac Paints Home">
+        <Box
+          component={NextLink}
+          href="/"
+          aria-label="Goldlac Paints Home"
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%',
+            textDecoration: 'none',
+          }}
+        >
           {logo}
-        </NextLink>
+        </Box>
       ) : (
         logo
       )}
