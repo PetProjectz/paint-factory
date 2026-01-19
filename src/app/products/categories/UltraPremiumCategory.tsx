@@ -10,6 +10,30 @@ import Typography from '@mui/material/Typography';
 import ProductCard, { type ProductCardProps } from '../../../components/productCard/ProductCard';
 
 const products: ProductCardProps[] = [
+  {
+    id: 1,
+    name: 'Aqua Shade Max',
+    description: "Sri Lanka's waterproof, weatherproof paint with brightest white finish",
+    image: '/ultra/aqua-shade-max.jpg',
+  },
+  {
+    id: 2,
+    name: 'Crack Bridging Primer',
+    description: 'Sri Lanka\'s top ultra-premium crack-bridging primer',
+    image: '/ultra/crack-bridging-primer.jpg',
+  },
+  {
+    id: 3,
+    name: 'Ultra Premium White',
+    description: 'Most blue-toned white with the brightest finish in Sri Lanka',
+    image: '/ultra/ultra-premium-white.jpg',
+  },
+  {
+    id: 4,
+    name: 'Ultra Shield Professional',
+    description: 'Semi-gross waterproof paint with the whitest finish in Sri Lanka',
+    image: '/ultra/ultra-shield-professional.jpg',
+  },
 ];
 
 const categoryInfo = {
