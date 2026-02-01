@@ -66,7 +66,7 @@ function HeroSection() {
                 mb: 1,
               }}
             >
-              Premium Paints · Made in Sri Lanka
+              The Professional Standard of Paint in Sri Lanka
             </Typography>
             <Typography
               component="h1"
