@@ -10,8 +10,8 @@ import Grid from '@mui/material/Grid';
 import Grow from '@mui/material/Grow';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
+import RecyclingRoundedIcon from '@mui/icons-material/RecyclingRounded';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import PaletteRoundedIcon from '@mui/icons-material/PaletteRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
@@ -22,43 +22,43 @@ const items = [
     icon: <ConstructionRoundedIcon />,
     title: 'Superior Durability',
     description:
-      'Formulated to withstand extreme weather conditions, ensuring long-lasting protection and surface integrity.',
-  },
-  {
-    icon: <SettingsSuggestRoundedIcon />,
-    title: 'Advanced Formulations',
-    description:
-      'Engineered using modern coating technology to deliver consistent finish, high coverage, and strong adhesion.',
-  },
-  {
-    icon: <AutoFixHighRoundedIcon />,
-    title: 'Weather & Moisture Resistance',
-    description:
-      'Designed to resist moisture penetration, UV exposure, and surface deterioration over time.',
+      'Formulated to withstand extreme weather and protect surfaces long-term, using high-quality raw materials sourced from globally reputed manufacturers in Germany, USA, UK, and Australia.',
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
     title: 'Professional Finish',
     description:
-      'Provides smooth application, rich color depth, and a premium finish trusted by professionals.',
+      'Premium & ultra-premium grades for professionals, delivering smooth application, rich color depth, and a finish trusted by professionals worldwide, meeting international quality standards.',
+  },
+  {
+    icon: <SettingsSuggestRoundedIcon />,
+    title: 'Advanced Formulations',
+    description:
+      'European & USA modified technology combined with premium raw materials from Germany, USA, UK, and Australia delivers flawless coverage and strong adhesion. Backed by 7 years of research and thousands of trials, our master badge products ensure uncompromised, quality-focused performance—never cheap.',
+  },
+  {
+    icon: <RecyclingRoundedIcon />,
+    title: 'Eco-Friendly & Safe',
+    description:
+      'Formulated with less in-can preservatives and eco-conscious ingredients, our paints are safe for families and homes. With a one-year shelf life, they are among the safest paints in Sri Lanka.',
   },
   {
     icon: <PaletteRoundedIcon />,
     title: 'Wide Color Range',
     description:
-      'Extensive selection of vibrant colors and shades to match any design vision and aesthetic preference.',
+      'Extensive selection of vibrant colors and shades, crafted with UK high-quality pigments guaranteed free from mercury, lead, or cadmium. We never use cheap raw materials, ensuring safe, rich, and long-lasting colors for every design vision.',
   },
   {
     icon: <LocationOnRoundedIcon />,
     title: 'Sri Lankan Made',
     description:
-      'Proudly manufactured in Sri Lanka with local expertise, supporting the local economy and ensuring quality craftsmanship.',
+      'Proudly researched and manufactured in Sri Lanka by the new generation of innovators. We combine Sri Lankan expertise with global quality standards, showing that Sri Lankans can create world-class products. Our mission is to inspire future generations to build global brands from Sri Lanka.',
   },
 ];
 
 export default function HighlightsSection() {
   const [headerVisible, setHeaderVisible] = React.useState(false);
-  const [itemVisible, setItemVisible] = React.useState<boolean[]>(new Array(6).fill(false));
+  const [itemVisible, setItemVisible] = React.useState<boolean[]>(new Array(items.length).fill(false));
   const headerRef = React.useRef<HTMLDivElement>(null);
   const itemRefs = React.useRef<(HTMLDivElement | null)[]>([]);
 
