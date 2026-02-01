@@ -6,15 +6,29 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grow from '@mui/material/Grow';
 import Image from 'next/image';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 
 import { useTheme } from '@mui/material/styles';
 
+const HERO_IMAGES = ['/hero/hero1.jpg', '/hero/hero3.jpg', '/hero/hero4.jpg', '/hero/hero5.png', '/hero/hero6.jpg'];
+
+const BLUR_DATA_URL =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=';
+
+const SLIDE_DURATION_MS = 5000;
+const FADE_DURATION_MS = 1200;
+
 function HeroSection() {
   const [imageLoaded, setImageLoaded] = React.useState(false);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const theme = useTheme();
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, SLIDE_DURATION_MS);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <Box
@@ -35,51 +49,6 @@ function HeroSection() {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
-        >
-          <Typography
-            variant="h1"
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', sm: 'row' },
-              alignItems: 'center',
-              fontSize: 'clamp(3rem, 10vw, 3.5rem)',
-            }}
-          >
-            <Typography
-              component="span"
-              variant="h1"
-              sx={{
-                fontSize: 'inherit',
-                color: 'primary.dark',
-              }}
-            >
-              Goldlac&nbsp;
-            </Typography>
-              Paints
-          </Typography>
-          <Typography
-            sx={{
-              textAlign: 'center',
-              color: 'text.primary',
-              width: { sm: '100%', md: '80%' },
-            }}
-          >
-            Excellence of New Generation
-          </Typography>
-          <Typography
-            sx={{
-              textAlign: 'center',
-              color: 'text.secondary',
-              width: { sm: '100%', md: '80%' },
-            }}
-          >
-            A Premium Sri Lankan Product
-          </Typography>
-        </Stack>
         <Grow in={imageLoaded} timeout={600}>
           <Box
             id="image"
@@ -101,19 +70,30 @@ function HeroSection() {
               },
             }}
           >
-            <Image
-              src="/hero.jpg"
-              alt="Goldlac Paints - Premium Quality Paints and Coatings manufactured in Sri Lanka"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-              onLoad={() => setImageLoaded(true)}
-            />
+            {HERO_IMAGES.map((src, index) => (
+              <Box
+                key={src}
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  opacity: index === currentIndex ? 1 : 0,
+                  transition: `opacity ${FADE_DURATION_MS}ms ease-in-out`,
+                  zIndex: index === currentIndex ? 1 : 0,
+                }}
+              >
+                <Image
+                  src={src}
+                  alt={`Goldlac Paints - Premium Quality Paints and Coatings manufactured in Sri Lanka ${index + 1}`}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                  priority={index === 0}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                  onLoad={() => index === 0 && setImageLoaded(true)}
+                />
+              </Box>
+            ))}
           </Box>
         </Grow>
       </Container>
