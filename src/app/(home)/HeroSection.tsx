@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 
 import { useTheme } from '@mui/material/styles';
 
-const HERO_IMAGES = ['/hero/hero1.jpg', '/hero/hero3.jpg', '/hero/hero4.jpg', '/hero/hero5.png', '/hero/hero6.jpg'];
+const HERO_IMAGES = ['/hero/hero1.jpg', '/hero/hero3.jpg', '/hero/hero4.jpg', '/hero/hero5.webp', '/hero/hero6.jpg'];
 
 const BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=';
@@ -41,6 +41,7 @@ function HeroSection() {
         width: '100%',
         minHeight: '100vh',
         backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
         backgroundImage: `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
       }}
     >

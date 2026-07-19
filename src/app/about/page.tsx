@@ -22,6 +22,7 @@ export default function About() {
         width: '100%',
         minHeight: '100vh',
         backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
         backgroundImage: `radial-gradient(ellipse 80% 50% at 50% -20%, ${theme.getAlphaColor('primary', 0.6, 'light')}, transparent)`,
       }}
     >
