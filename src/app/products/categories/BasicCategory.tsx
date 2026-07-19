@@ -14,13 +14,13 @@ const products: ProductCardProps[] = [
     id: 1,
     name: 'Exterior Guard',
     description: 'Exterior Basic Emulsion',
-    image: '/basic/exterior-basic.jpg',
+    image: '/basic/exterior-basic.webp',
   },
   {
     id: 2,
     name: 'Interior Flat White',
     description: 'Interior Basic Emulsion',
-    image: '/basic/interior-basic.jpg',
+    image: '/basic/interior-basic.webp',
   },
 ];
 
