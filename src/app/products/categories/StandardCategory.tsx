@@ -14,37 +14,37 @@ const products: ProductCardProps[] = [
     id: 1,
     name: 'Aquashade Exterior Waterproofing Paint',
     description: 'Exterior Standard Emulsion',
-    image: '/standard/exterior-standard.jpg',
+    image: '/standard/exterior-standard.webp',
   },
   {
     id: 2,
     name: 'Exterior Filler',
     description: 'Standard Undercoat',
-    image: '/standard/exterior-undercoat-standard.jpg',
+    image: '/standard/exterior-undercoat-standard.webp',
   },
   {
     id: 3,
     name: 'Interior Filler',
     description: 'Standard Undercoat',
-    image: '/standard/interior-undercoat-standard.jpg',
+    image: '/standard/interior-undercoat-standard.webp',
   },
   {
     id: 4,
     name: 'Interior Brilliant White',
     description: 'Standard Collection',
-    image: '/standard/interior-white-standard.jpg',
+    image: '/standard/interior-white-standard.webp',
   },
   {
     id: 5,
     name: 'Colour Emulsion',
     description: 'Standard Interior Matt Colour Emulsion',
-    image: '/standard/colour-emultion.jpg',
+    image: '/standard/colour-emultion.webp',
   },
   {
     id: 6,
     name: 'Bonding Polymer',
     description: 'Waterproofing Elastrometric Bonding Solution',
-    image: '/standard/bonding-polymer.jpg',
+    image: '/standard/bonding-polymer.webp',
   },
 ];
 
