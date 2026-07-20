@@ -14,11 +14,11 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 const HERO_IMAGES = [
-  '/hero/hero1.jpg',
-  '/hero/hero2.jpg',
-  '/hero/hero3.jpg',
-  '/hero/hero4.jpg',
-  '/hero/hero5.jpg',
+  '/hero/hero1.webp',
+  '/hero/hero2.webp',
+  '/hero/hero3.webp',
+  '/hero/hero4.webp',
+  '/hero/hero5.webp',
 ];
 
 const BLUR_DATA_URL =
