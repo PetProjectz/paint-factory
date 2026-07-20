@@ -13,7 +13,13 @@ import Typography from '@mui/material/Typography';
 
 import { useTheme } from '@mui/material/styles';
 
-const HERO_IMAGES = ['/hero/hero1.jpg', '/hero/hero3.jpg', '/hero/hero4.jpg', '/hero/hero5.png', '/hero/hero6.jpg'];
+const HERO_IMAGES = [
+  '/hero/hero1.jpg',
+  '/hero/hero2.jpg',
+  '/hero/hero3.jpg',
+  '/hero/hero4.jpg',
+  '/hero/hero5.jpg',
+];
 
 const BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=';
