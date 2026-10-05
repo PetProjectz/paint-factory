@@ -135,7 +135,7 @@ export default function Footer() {
               Powered by{' '}
               <Link
                 color="text.secondary"
-                href="https://www.facebook.com/profile.php?id=61581866430688"
+                href="https://www.boostify.lk"
                 target="_blank"
                 rel="noopener noreferrer"
               >
